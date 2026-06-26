@@ -1,0 +1,39 @@
+{
+  "name": "guitar-fretboard-mastery",
+  "version": "1.0.0",
+  "description": "The ultimate guitar fretboard mastery app — scales, chords, modes, CAGED, and more",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win",
+    "pack": "electron-builder --dir"
+  },
+  "author": "Yaseen",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.0",
+    "jimp": "^1.6.1",
+    "png-to-ico": "^3.0.1"
+  },
+  "build": {
+    "appId": "com.yaseen.guitar-fretboard-mastery",
+    "productName": "Guitar Fretboard Mastery",
+    "win": {
+      "target": "nsis",
+      "icon": "src/assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*"
+    ]
+  }
+}
