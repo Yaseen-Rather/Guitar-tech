@@ -1,0 +1,63 @@
+/* ============================================================
+   TopBar Styles
+   ============================================================ */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  padding: 0 24px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  gap: 16px;
+  z-index: 5;
+}
+
+.topbar-left,
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar .control-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar .control-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.topbar .dropdown {
+  padding: 5px 28px 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+}
+
+.root-dropdown {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  color: var(--primary) !important;
+  min-width: 60px;
+}
+
+.topbar .btn-icon {
+  width: 34px;
+  height: 34px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle {
+  font-size: 1.1rem;
+}

@@ -1,0 +1,347 @@
+/* ============================================================
+   Fretboard Styles — Realistic Wood Textures & Interactive Notes
+   ============================================================ */
+
+.fretboard-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 16px;
+}
+
+.fretboard-container.compact {
+  padding: 10px;
+  margin-bottom: 16px;
+}
+
+.fretboard {
+  display: flex;
+  align-items: stretch;
+  min-width: 900px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ---- Wood Textures ---- */
+.wood-maple {
+  background: linear-gradient(
+    180deg,
+    #E8D5A8 0%,
+    #DCC89A 15%,
+    #D4BC8C 30%,
+    #CEAD78 50%,
+    #D4BC8C 70%,
+    #DCC89A 85%,
+    #E8D5A8 100%
+  );
+}
+
+.wood-rosewood {
+  background: linear-gradient(
+    180deg,
+    #4A2C1A 0%,
+    #3D2415 15%,
+    #5A3420 30%,
+    #4E2E1C 50%,
+    #5A3420 70%,
+    #3D2415 85%,
+    #4A2C1A 100%
+  );
+}
+
+.wood-ebony {
+  background: linear-gradient(
+    180deg,
+    #1A1A1F 0%,
+    #222228 15%,
+    #1D1D22 30%,
+    #252530 50%,
+    #1D1D22 70%,
+    #222228 85%,
+    #1A1A1F 100%
+  );
+}
+
+/* Subtle wood grain overlay */
+.fretboard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.1) 2px,
+    rgba(0,0,0,0.1) 3px
+  );
+}
+
+/* ---- Nut ---- */
+.fretboard-nut {
+  width: 6px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #F5F0E8, #E8E0D0, #F5F0E8);
+  border-right: 1px solid rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+/* ---- String Labels ---- */
+.string-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 4px 8px;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.string-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.compact .string-label {
+  height: 26px;
+  font-size: 0.65rem;
+}
+
+/* ---- Fretboard Grid ---- */
+.fretboard-grid {
+  display: flex;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Fret Column ---- */
+.fret-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex: 1;
+  min-width: 36px;
+  position: relative;
+  padding: 4px 2px;
+}
+
+.fret-column.open-strings {
+  flex: 0.6;
+  min-width: 28px;
+}
+
+/* ---- Fret Wire ---- */
+.fret-wire {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    #C0A060,
+    #D4B878,
+    #C0A060
+  );
+  z-index: 2;
+  box-shadow: 1px 0 2px rgba(0,0,0,0.15);
+}
+
+/* ---- String Line ---- */
+.note-cell {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.compact .note-cell {
+  height: 26px;
+}
+
+.string-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    90deg,
+    #B0B0B0,
+    #D4D4D8,
+    #B0B0B0
+  );
+  z-index: 0;
+}
+
+.wood-rosewood .string-line,
+.wood-ebony .string-line {
+  background: linear-gradient(
+    90deg,
+    #909090,
+    #C0C0C0,
+    #909090
+  );
+}
+
+/* ---- Note Dot ---- */
+.note-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  z-index: 3;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: none;
+  position: relative;
+}
+
+.compact .note-dot {
+  width: 22px;
+  height: 22px;
+  font-size: 0.55rem;
+}
+
+.note-dot:hover {
+  transform: scale(1.2);
+  z-index: 5;
+}
+
+.note-dot:active {
+  transform: scale(0.95);
+}
+
+/* Note color variants */
+.note-dot.note-root {
+  background: var(--note-root);
+  color: var(--note-root-text);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+}
+
+.note-dot.note-root:hover {
+  box-shadow: 0 0 14px rgba(139, 92, 246, 0.6);
+}
+
+.note-dot.note-scale {
+  background: var(--note-scale);
+  color: var(--note-scale-text);
+}
+
+.note-dot.note-scale:hover {
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+}
+
+.note-dot.note-blue {
+  background: var(--note-blue);
+  color: white;
+}
+
+.note-dot.note-green {
+  background: var(--note-green);
+  color: white;
+}
+
+.note-dot.note-pink {
+  background: var(--note-pink);
+  color: white;
+}
+
+.note-dot.note-orange {
+  background: var(--note-orange);
+  color: white;
+}
+
+.note-dot.note-teal {
+  background: var(--note-teal);
+  color: white;
+}
+
+.note-dot.note-inactive {
+  background: var(--note-inactive);
+  color: var(--note-inactive-text);
+  width: 22px;
+  height: 22px;
+  font-size: 0.55rem;
+  opacity: 0.6;
+}
+
+.note-label {
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* ---- Fret Markers (Inlays) ---- */
+.fret-marker {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.marker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--fretboard-inlay);
+}
+
+.wood-maple .marker-dot {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.wood-rosewood .marker-dot,
+.wood-ebony .marker-dot {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ---- Fret Numbers ---- */
+.fret-numbers {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  display: flex;
+}
+
+.fret-number {
+  flex: 1;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.fret-number.open-strings {
+  flex: 0.6;
+}
+
+/* Container needs extra bottom padding for fret numbers */
+.fretboard-container {
+  padding-bottom: 40px;
+}
+
+.fretboard-container.compact {
+  padding-bottom: 32px;
+}

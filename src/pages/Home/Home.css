@@ -1,0 +1,17 @@
+/* Home page styles */
+
+.home-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.welcome-text h1 {
+  font-size: 1.75rem;
+  margin-bottom: 6px;
+}
+
+.welcome-text p {
+  font-size: 0.95rem;
+}

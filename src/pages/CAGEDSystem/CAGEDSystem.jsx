@@ -1,0 +1,15 @@
+export default function CAGEDSystem() {
+  return (
+    <div className="page-content animate-fade-in">
+      <div className="page-header">
+        <h1>🔲 CAGED System</h1>
+        <p>Coming in Phase 2 — visualize all 5 CAGED shapes across the fretboard.</p>
+      </div>
+      <div className="card" style={{ textAlign: 'center', padding: '60px 20px' }}>
+        <span style={{ fontSize: '3rem' }}>🚧</span>
+        <h2 style={{ marginTop: '16px' }}>Under Construction</h2>
+        <p>This module will be built in Phase 2.</p>
+      </div>
+    </div>
+  )
+}

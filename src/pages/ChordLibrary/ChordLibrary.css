@@ -1,0 +1,7 @@
+/* Chord Library specific styles */
+
+.chord-type-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
